@@ -36,11 +36,50 @@ export default {
 <template>
   <div>
     <input v-model="searchTerm" placeholder="Search for a Pokemon" />
-    <div v-for="pokemon in filterPokemon()" :key="pokemon.name">
-      <router-link :to="`/pokemon/${pokemon.name}`">
-        <div>{{ pokemon.name }}</div>
-        <img :src="pokemon.thumbnail" :alt="pokemon.name" />
-      </router-link>
+    <div class="container">
+      <div
+        v-for="pokemon in filterPokemon()"
+        :key="pokemon.name"
+        class="pokemon-container"
+      >
+        <router-link :to="`/pokemon/${pokemon.name}`" class="link">
+          <div>{{ pokemon.name }}</div>
+          <img :src="pokemon.thumbnail" :alt="pokemon.name" />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100vw;
+}
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  width: 100px;
+  height: 120px;
+  margin: 12px;
+  border-radius: 3px;
+  box-shadow: 3px 3px black;
+}
+.pokemon-container:hover {
+  box-shadow: 1px 1px black;
+  transform: translateY(2px);
+}
+.link {
+  color: black;
+  font-style: none;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+</style>
