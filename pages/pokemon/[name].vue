@@ -14,11 +14,9 @@ const profileData = ref({});
 
 const fetchProfile = async (): Promise<void> => {
   try {
-    // console.log("fetching profile");
     const response = await fetch(`../api/profile/${route.params.name}`);
     const result = await response.json();
     profileData.value = result;
-    // console.log(profileData.value.thumbnail);
   } catch (error) {
     console.error(error);
   }
@@ -31,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="profile-container">
     <h1>{{ profileData.name }}</h1>
 
     <img :src="profileData.thumbnail" :alt="profileData.name" class="profpic" />
@@ -47,7 +45,7 @@ h5 {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
-.container {
+.profile-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

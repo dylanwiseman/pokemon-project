@@ -8,8 +8,9 @@ export default {
   data() {
     return {
       pokemonList: new Array<Pokemon>(
-        { name: "pikachu", thumbnail: "" },
-        { name: "raichu", thumbnail: "" }
+        { name: "Loading...", thumbnail: "" },
+        { name: "Loading...", thumbnail: "" },
+        { name: "Loading...", thumbnail: "" }
       ),
       searchTerm: "" as string,
     };
@@ -22,9 +23,7 @@ export default {
     },
     async getPokemon(): Promise<void> {
       const pokemonRes = await fetch("/api/pokemon");
-      // console.log("frontend pokemon return: ", await pokemonRes.json());
       this.pokemonList = await pokemonRes.json();
-      // console.log(this.pokemonList);
     },
   },
   async mounted() {
@@ -37,12 +36,7 @@ export default {
   <div>
     <h1>Pokémon Database</h1>
     <div class="input-container">
-      <img
-        src="../public/search.png"
-        width="18"
-        height="18"
-        class="search-img"
-      />
+      <img src="/search.png" width="18" height="18" class="search-img" />
       <input v-model="searchTerm" />
     </div>
     <div class="container">
