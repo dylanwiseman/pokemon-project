@@ -24,7 +24,7 @@ export default {
       const pokemonRes = await fetch("/api/pokemon");
       // console.log("frontend pokemon return: ", await pokemonRes.json());
       this.pokemonList = await pokemonRes.json();
-      console.log(this.pokemonList);
+      // console.log(this.pokemonList);
     },
   },
   async mounted() {
@@ -36,10 +36,6 @@ export default {
 <template>
   <div>
     <h1>Pokémon Database</h1>
-    <!-- <p>
-      Built this Pokemon database to practice using Typescript, Vue.js, and Nuxt
-      (instead of my usual React + Next.js)
-    </p> -->
     <div class="input-container">
       <img
         src="../public/search.png"
