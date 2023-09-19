@@ -1,11 +1,11 @@
 <script setup lang="ts">
-// interface Profile {
-//   name: string;
-//   height: number;
-//   weight: number;
-//   abilities: string;
-//   thumbnail: string;
-// }
+interface Profile {
+  name: string;
+  height: number;
+  weight: number;
+  abilities: string;
+  thumbnail: string;
+}
 //@ts-ignore
 const route = useRoute();
 
@@ -14,8 +14,10 @@ const profileData = ref({});
 
 const fetchProfile = async (): Promise<void> => {
   try {
-    const response = await fetch(`../api/profile/${route.params.name}`);
-    const result = await response.json();
+    const response: Response = await fetch(
+      `../api/profile/${route.params.name}`
+    );
+    const result: Profile = await response.json();
     profileData.value = result;
   } catch (error) {
     console.error(error);

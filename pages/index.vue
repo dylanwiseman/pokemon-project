@@ -22,8 +22,12 @@ export default {
       );
     },
     async getPokemon(): Promise<void> {
-      const pokemonRes = await fetch("/api/pokemon");
-      this.pokemonList = await pokemonRes.json();
+      try {
+        const pokemonRes: Response = await fetch("/api/pokemon");
+        this.pokemonList = await pokemonRes.json();
+      } catch (error) {
+        console.warn(error);
+      }
     },
   },
   async mounted() {
