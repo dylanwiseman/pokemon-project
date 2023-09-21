@@ -23,7 +23,9 @@ export default {
     },
     async getPokemon(): Promise<void> {
       try {
-        const pokemonRes: Response = await fetch("/api/pokemon");
+        const pokemonRes: Response = await fetch(
+          "/pokemon-project/api/pokemon"
+        );
         this.pokemonList = await pokemonRes.json();
       } catch (error) {
         console.warn(error);
