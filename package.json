@@ -1,5 +1,6 @@
 {
   "name": "nuxt-app",
+  "homepage": "https://dylanwiseman.github.io/pokemon-project",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,10 +8,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "nuxt": "^3.7.3"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
